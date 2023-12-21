@@ -29,15 +29,7 @@ namespace BlogApp.Business.Services.Implementations
             return await _rep.GetByIdAsync(Id);
 
         }
-        public async Task<Brand> CreateAsync(CreateBrandDTO entity)
-        {
-            Brand newBrand = _mapper.Map<Brand>(entity);
-
-            _rep.CreateAsync(newBrand);
-            _rep.SaveChangesAsync();
-
-            return newBrand;
-        }
+           
         public async Task<Brand> UpdateAsync(UpdateBrandDTO entity)
         {
             Brand oldBrand = await _rep.GetByIdAsync(entity.Id);
